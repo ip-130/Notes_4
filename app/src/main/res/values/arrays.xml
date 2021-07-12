@@ -6,10 +6,13 @@
         <item>Заметка 3</item>
         <item>Заметка 4</item>
         <item>Заметка 5</item>
-        <item>Заметка 6</item>
-        <item>Заметка 7</item>
-        <item>Заметка 8</item>
-        <item>Заметка 9</item>
-        <item>Заметка 10</item>
     </string-array>
+
+    <integer-array name="notes_imgs">
+        <item>@drawable/notes_1</item>
+        <item>@drawable/notes_2</item>
+        <item>@drawable/notes_3</item>
+        <item>@drawable/notes_4</item>
+        <item>@drawable/notes_5</item>
+    </integer-array>
 </resources>

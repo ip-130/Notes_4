@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Notes extends AppCompatActivity {
 
+    public static final String ARG_INDEX = "index";
+    public int index;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

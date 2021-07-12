@@ -1,5 +1,6 @@
 package com.android.notes_4;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
@@ -45,7 +47,11 @@ public class Fragment_two extends Fragment {
                              Bundle savedInstanceState) {
         // Таким способом можно получить головной элемент из макета
         View view = inflater.inflate(R.layout.fragment_two, container, false);
+        AppCompatImageView imageCoatOfArms = view.findViewById(R.id.notes);
+        TypedArray images = getResources().obtainTypedArray(R.array.notes_imgs);
+        imageCoatOfArms.setImageResource(images.getResourceId(index, -1));
         initView(view);
+
         setInitialDateTime();
         return view;
     }

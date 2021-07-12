@@ -37,5 +37,11 @@
         android:paddingLeft="10dp"
         android:textColor="#000000" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/notes_1" />
+
 
 </LinearLayout>
