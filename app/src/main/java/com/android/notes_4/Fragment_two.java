@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment;
 import java.util.Calendar;
 
 public class Fragment_two extends Fragment {
-    private static final String ARG_INDEX = "index";
-    private int index;
+    public static final String ARG_INDEX = "index";
+    public int index;
 
     TextView tvNoteDate;
     EditText etText;
