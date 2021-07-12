@@ -21,9 +21,8 @@ public class Fragment_one extends Fragment {
     private int index;
     private boolean isLandscape;
     public static final String CURRENT_NOTES = "CurrentNotes";
-    private int currentPosition = 0;    // Текущая позиция (выбранный город)
+    private int currentPosition = 0;
 
-    // При создании фрагмента укажем его макет
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,10 +41,6 @@ public class Fragment_one extends Fragment {
         LinearLayout layoutView = (LinearLayout)view;
         String[] note = getResources().getStringArray(R.array.notes);
 
-        // В этом цикле создаём элемент TextView,
-        // заполняем его значениями,
-        // и добавляем на экран.
-        // Кроме того, создаём обработку касания на элемент
         for(int i=0; i < note.length; i++){
             String notes = note[i];
             TextView tv = new TextView(getContext());
@@ -56,7 +51,6 @@ public class Fragment_one extends Fragment {
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    showPortNotes(fi);
                     currentPosition = fi;
                     showNotes(currentPosition);
 
@@ -64,7 +58,6 @@ public class Fragment_one extends Fragment {
             });
         }
     }
-
     // Сохраним текущую позицию (вызывается перед выходом из фрагмента)
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
@@ -78,7 +71,7 @@ public class Fragment_one extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // Определение, можно ли будет расположить рядом герб в другом фрагменте
+        // Определение, можно ли будет расположить рядом в другом фрагменте
         isLandscape = getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
 
@@ -88,7 +81,6 @@ public class Fragment_one extends Fragment {
             currentPosition = savedInstanceState.getInt(CURRENT_NOTES, 0);
         }
 
-        // Если можно нарисовать рядом герб, то сделаем это
         if (isLandscape) {
             showLandNotes(0);
         }
@@ -102,9 +94,9 @@ public class Fragment_one extends Fragment {
         }
     }
 
-    // Показать герб в ландшафтной ориентации
+    // Показать в ландшафтной ориентации
     private void showLandNotes(int index) {
-        // Создаём новый фрагмент с текущей позицией для вывода герба
+        // Создаём новый фрагмент с текущей позицией для вывода
         Fragment_two detail = Fragment_two.newInstance(index);
 
         // Выполняем транзакцию по замене фрагмента
@@ -115,7 +107,7 @@ public class Fragment_one extends Fragment {
         fragmentTransaction.commit();
     }
 
-    // Показать герб в портретной ориентации.
+    // Показать в портретной ориентации.
     private void showPortNotes(int index) {
         // Откроем вторую activity
         Intent intent = new Intent();
